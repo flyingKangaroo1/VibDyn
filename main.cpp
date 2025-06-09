@@ -71,3 +71,24 @@ void loop() {
     increasing = !increasing; // Toggle direction
   }
 }
+
+
+void directionControl(byte speed) {
+  // Apply received speed to motors
+  // 130 for 3 point straight // 98(115) for 2 point straight  // first angle for shooting
+  // 1 turn 기다리기
+  // 103 for 3 point side  // 87(94) for 2 side // second angle for shooting
+  // 1 turn 기다리기, 첫번째 거는 날리기
+  // 위치는 벽에 아예 닫게!!
+  // +-2 offset
+  // 105 is the lowest we can go
+  // speed = 125;
+  analogWrite(enA, speed);
+  analogWrite(enB, speed);
+
+  // Turn on motor A & B
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+}
